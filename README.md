@@ -5,7 +5,7 @@ It is possible to add new tasks to the list (plus icon), mark them as done (chec
 
 If user wants to logout, it can be done by clicking/touching the logout icon in the right upper corner and application directs user back to the login page.
 
-Instructions for implementation:
+Instructions for deployment:
 
 1.	You need to have XAMPP (or similar) installed and then start Apache and MySQL
 2.	Download this project to your computer and put it in a new file “mytodos” in \XAMMP\htdocs\ folder
