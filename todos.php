@@ -48,6 +48,7 @@ if (isset($_SESSION['id'])) {
     //displays results in a table
     if ($result->num_rows > 0) {
         echo " 
+        <div style='overflow-x:auto;'>
           <table class='table table-striped'>
             <thead>
                 <tr>
@@ -85,7 +86,7 @@ if (isset($_SESSION['id'])) {
         }
         echo
             "</tbody>
-         </table>";
+         </table></div>";
     } else {
         // if there are no tasks in database, this message shows on the site     
         echo "Your ToDo-list is empty. Start adding new tasks by clicking the plus sign.";
