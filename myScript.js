@@ -1,13 +1,15 @@
+//confirmation before deleting task.
 function confirmation() {
   var x = confirm("Are you sure you want to delete this task?");
   return x;
 }
-
+//confirmation before logging out.
 function logout() {
   var x = confirm("Are you sure you want to logout?");
   return x;
 }
 
+//checks for empty fields and highlights them with red bordercolors.
 function validateForm() {
   var str = document.getElementById("task").value;
   var date = document.getElementById("date").value;
@@ -32,6 +34,7 @@ function validateForm() {
   }
 }
 
+//checks for empty fields and highlights them with red bordercolors.
 function validateLogin() {
   var email = document.getElementById("loginEmail").value;
   var pwd = document.getElementById("loginPassword").value;
@@ -49,8 +52,8 @@ function validateLogin() {
     return false;
   }
 }
-
-function validateRegister(){
+//checks for empty fields and highlights them with red bordercolors.
+function validateRegister() {
   var fname = document.getElementById("regFname").value;
   var lname = document.getElementById("regLname").value;
   var email = document.getElementById("regEmail").value;
@@ -78,4 +81,3 @@ function validateRegister(){
     return false;
   }
 }
-

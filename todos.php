@@ -1,6 +1,9 @@
-<?php include 'head.php'; ?>
-
 <?php
+
+//including html head section and jumbotron
+include 'head.php';
+
+// Starts the session. if false, directs back to login page.
 session_start();
 if (isset($_SESSION['id'])) {
     $userID = $_SESSION['id'];
@@ -10,6 +13,7 @@ if (isset($_SESSION['id'])) {
     header('Location: index.php');
 }
 ?>
+<!-- basic structure for ToDos list -->
 <div id="myTodos">
     <div class="row">
         <div class="col-sm-12">
@@ -26,8 +30,11 @@ if (isset($_SESSION['id'])) {
     <br>
 
     <?php include 'DBconn.php';
-    //Create SQL query
+    //DB details and connection included
+    //Creates SQL query to get task data from database
     $sql = "SELECT * FROM task WHERE userID='$userID'";
+
+    // user can sort tasks by deadline or priority
     if (isset($_GET['sort'])) {
 
         if ($_GET['sort'] == 'date') {
@@ -38,7 +45,7 @@ if (isset($_SESSION['id'])) {
     }
     $result = $conn->query($sql);
 
-    //Display results in a table
+    //displays results in a table
     if ($result->num_rows > 0) {
         echo " 
           <table class='table table-striped'>
@@ -52,6 +59,8 @@ if (isset($_SESSION['id'])) {
             </thead>
             <tbody>";
         while ($row = $result->fetch_assoc()) {
+            //if task is marked as done, the task will have a strike through
+            //otherwise shown as normal
             if ($row["completed"] == 1) {
                 echo "
                 <tr>
@@ -68,7 +77,7 @@ if (isset($_SESSION['id'])) {
                     <td>" . $row["priority"] . "</td>
                     <td>";
             }
-            echo "   <a href='completed.php?id=" . $row["taskID"] . "&status=" . $row["completed"] . "' data-toggle='tooltip' data-placement='bottom' title='Mark as done'><img src='pics/check.png' width='30' height='30' alt='delete'></a>
+            echo "  <a href='completed.php?id=" . $row["taskID"] . "&status=" . $row["completed"] . "' data-toggle='tooltip' data-placement='bottom' title='Mark as done'><img src='pics/check.png' width='30' height='30' alt='delete'></a>
                     <a href='editForm.php?id=" . $row["taskID"] . "' data-toggle='tooltip' data-placement='bottom' title='Edit'><img src='pics/edit.png' width='30' height='30' alt='edit'></a>
                     <a onClick='return confirmation()' href='delete.php?id=" . $row["taskID"] . "' data-toggle='tooltip' data-placement='bottom' title='Delete' ><img src='pics/delete.png' width='30' height='30' alt='delete'></a>
                     </td>
@@ -77,21 +86,21 @@ if (isset($_SESSION['id'])) {
         echo
             "</tbody>
          </table>";
-        // If DB is empty this message shows on the site                      
     } else {
+        // if there are no tasks in database, this message shows on the site     
         echo "Your ToDo-list is empty. Start adding new tasks by clicking the plus sign.";
     }
-    //Close connection
+
     $conn->close();
     ?>
 </div>
 <br>
 <br>
-
+<!--shows little infotext when hoovering over tool-icon  -->
 <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
-
+<!-- includes footer details -->
 <?php include 'footer.php'; ?>

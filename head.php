@@ -1,5 +1,5 @@
 <?php
-/*Just for server-side code*/
+//Needed for server-side code, so that special characters from DB are shown correctly in UI.
 header('Content-Type: text/html; charset=ISO-8859-1');
 ?>
 
