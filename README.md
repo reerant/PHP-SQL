@@ -1,7 +1,9 @@
 # MY TODOS
-My Todos is a responsive application for managing tasks and deadlines. It can be used on desktops, tablets and mobile phones. When user enters the application, it first requires either to log in if registration has been done already or to register a new account. After logging in it is possible to start using the application. If task list is empty, application shows a little instruction of how to get started. 
+My Todos is a responsive application for managing tasks and deadlines. It can be used on desktops, tablets and mobile phones. This project was developed within a school course. 
 
-It is possible to add new tasks to the list (plus icon), mark them as done (checked icon), edit them (pen icon) or delete them (trash icon). These actions can be executed by clicking/touching these icons in the “Tools” section. When adding or editing tasks, there must be set task description, deadline and priority level. In the task list it is possible to sort deadline (from the earliest date to the latest) or priority (from the highest level to the lowest), but at this point this feature is still under construction, so not able to do it vice versa or combine these two sortings. 
+When user enters the application, it first requires either to log in if registration has been done already or to register a new account. After logging in it is possible to start using the application. If task list is empty, application shows a little instruction of how to get started. 
+
+It is possible to add new tasks to the list (plus icon), mark them as done (checked icon), edit them (pen icon) or delete them (trash icon). These actions can be executed by clicking/touching these icons in the “Tools” section. When adding or editing tasks, there must be set task description, deadline and priority level. In the task list it is possible to sort deadline (from the earliest date to the latest) or priority (from the highest level to the lowest), but at this point this feature is still under construction, so not able to do it vice versa or combine these two sortings. NOTE; there are also few other features that are not finished yet, like changing passwords etc.
 
 If user wants to logout, it can be done by clicking/touching the logout icon in the right upper corner and application directs user back to the login page.
 
