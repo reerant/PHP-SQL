@@ -113,15 +113,15 @@ if (isset($_POST['registerButton'])) {
   </div>
   <!-- validateLogin checks if there are any empty fields in the form when submitting -->
   <form action="index.php" name="loginForm" method="post" id="loginForm" onsubmit="return validateLogin()">
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="loginEmail" class="col-form-label">Email:</label>
       <input type="text" class="form-control" id="loginEmail" name="loginEmail">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="loginPassword" class="col-form-label">Password:</label>
       <input type="password" class="form-control" id="loginPassword" name="loginPassword">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <button type="submit" class="btn btn-secondary" id="loginButton" name="loginButton">Login</button>
     </div>
     <br>
@@ -137,7 +137,7 @@ if (isset($_POST['registerButton'])) {
 
     <br>
     <p>If you do not have an account yet click on "Register" to create one. </p>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#register">Register</button>
     </div>
   </form>
@@ -170,14 +170,17 @@ if (isset($_POST['registerButton'])) {
 
           <div class="form-group">
             <label for="regEmail">Email</label>
-            <input type="email" class="form-control" id="regEmail" name="regEmail" aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><small id="emailHelp" class="form-text text-muted">
-              Your email must contain @ character. It can NOT contain &auml;,	&ouml; or &aring; characters.
+            <input type="email" class="form-control" id="regEmail" name="regEmail" aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <small id="emailHelp" class="form-text text-muted">
+              Your email must contain @ character. It can NOT contain &auml;, &ouml; or &aring; characters.
+            </small>
           </div>
 
           <div class="form-group">
             <label for="regPassword">Password</label>
-            <input type="password" class="form-control" id="regPassword" name="regPassword" aria-describedby="passwordHelp" pattern=".{8,}" title="Password must contain eight or more characters"><small id="passwordHelp" class="form-text text-muted">
-              Your password must contain eight or more characters. 
+            <input type="password" class="form-control" id="regPassword" name="regPassword" aria-describedby="passwordHelp" pattern=".{8,}" title="Password must contain eight or more characters">
+            <small id="passwordHelp" class="form-text text-muted">
+              Your password must contain eight or more characters.
             </small>
           </div>
 

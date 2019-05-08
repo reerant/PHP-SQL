@@ -31,10 +31,11 @@ if (isset($_SESSION['id'])) {
 
     <?php include 'DBconn.php';
     //DB details and connection included
-    //Creates SQL query to get task data from database
-    $sql = "SELECT * FROM task WHERE userID='$userID'";
+    //Creates SQL query to get task data from database by using userID from session variables
+    $sql = "SELECT * FROM task WHERE userID=?";
 
-    // user can sort tasks by deadline or priority
+    // checks if user sorts tasks by deadline or priority
+    // if true, adds 'order by' into to the sql query
     if (isset($_GET['sort'])) {
 
         if ($_GET['sort'] == 'date') {
@@ -43,7 +44,11 @@ if (isset($_SESSION['id'])) {
             $sql .= " ORDER BY CASE priority  when 'High' then '0' when 'Medium' then '1' when 'Low' then '2' END";
         }
     }
-    $result = $conn->query($sql);
+    //makes sql query with prepared statements  
+    $query = $conn->prepare($sql);
+    $query->bind_param("i", $userID);
+    $query->execute();
+    $result = $query->get_result();
 
     //displays results in a table
     if ($result->num_rows > 0) {
