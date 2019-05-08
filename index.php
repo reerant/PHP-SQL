@@ -170,13 +170,14 @@ if (isset($_POST['registerButton'])) {
 
           <div class="form-group">
             <label for="regEmail">Email</label>
-            <input type="email" class="form-control" id="regEmail" name="regEmail">
+            <input type="email" class="form-control" id="regEmail" name="regEmail" aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><small id="emailHelp" class="form-text text-muted">
+              Your email must contain @ character. It can NOT contain &auml;,	&ouml; or &aring; characters.
           </div>
 
           <div class="form-group">
             <label for="regPassword">Password</label>
-            <input type="password" class="form-control" id="regPassword" name="regPassword" aria-describedby="passwordHelpBlock" pattern=".{8,}" title="Password must contain eight or more characters"><small id="passwordHelpBlock" class="form-text text-muted">
-              Your password must contain eight or more characters.
+            <input type="password" class="form-control" id="regPassword" name="regPassword" aria-describedby="passwordHelp" pattern=".{8,}" title="Password must contain eight or more characters"><small id="passwordHelp" class="form-text text-muted">
+              Your password must contain eight or more characters. 
             </small>
           </div>
 

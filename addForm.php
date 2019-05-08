@@ -1,10 +1,11 @@
 <?php
-//starts session and checks userID 
+//starts session and checks userID. If false, directs back to login page.
 session_start();
 if (isset($_SESSION['id'])) {
     $userID = $_SESSION['id'];
+} else {
+    header('Location: index.php');
 }
-
 //includes database details and connection 
 include 'DBconn.php';
 
